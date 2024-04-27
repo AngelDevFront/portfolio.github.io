@@ -1,0 +1,67 @@
+@font-face {
+  font-family: "ProtestRevolution";
+  src: url(../font/ProtestRevolution-Regular.ttf);
+}
+@font-face {
+  font-family: "Allura";
+  src: url(../font/Allura-Regular.ttf);
+}
+
+$font1: ProtestRevolution, sans-serif;
+$font2: Allura, sans-serif;
+$color1: rgb(3, 7, 32);
+$color2: linear-gradient(
+  to right,
+  rgba(123, 46, 236, 1) 0%,
+  rgba(9, 71, 121, 1) 50%,
+  rgba(0, 212, 255, 1) 100%
+);
+$color3: rgb(0, 110, 255);
+$white: white;
+
+@mixin alignChildren($space) {
+  display: flex;
+  align-items: center;
+  justify-content: $space; // Vous devez préfixer avec "space-"
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  text-align: center;
+  font-family: $font2;
+  background: $color1;
+  // cursor: none;
+}
+.mouse {
+  position: absolute;
+  border-radius: 1500px;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  pointer-events: none;
+}
+#cursor {
+  background: $color2;
+  width: 14px;
+  height: 14px;
+}
+#mouse1 {
+  height: 100px;
+  width: 100px;
+  background: $color2;
+  transition: 0.2s ease;
+}
+#mouse2 {
+  height: 200px;
+  width: 200px;
+  background: $color2;
+  transition: 0.3s ease;
+}

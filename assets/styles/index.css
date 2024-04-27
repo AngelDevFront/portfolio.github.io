@@ -1,0 +1,553 @@
+@font-face {
+  font-family: "ProtestRevolution";
+  src: url(../font/ProtestRevolution-Regular.ttf);
+}
+@font-face {
+  font-family: "Allura";
+  src: url(../font/Allura-Regular.ttf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  text-align: center;
+  font-family: Allura, sans-serif;
+  background: rgb(3, 7, 32);
+}
+
+.mouse {
+  position: absolute;
+  border-radius: 1500px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  mix-blend-mode: difference;
+  pointer-events: none;
+}
+
+#cursor {
+  background: -webkit-gradient(linear, left top, right top, from(rgb(123, 46, 236)), color-stop(50%, rgb(9, 71, 121)), to(rgb(0, 212, 255)));
+  background: linear-gradient(to right, rgb(123, 46, 236) 0%, rgb(9, 71, 121) 50%, rgb(0, 212, 255) 100%);
+  width: 14px;
+  height: 14px;
+}
+
+#mouse1 {
+  height: 100px;
+  width: 100px;
+  background: -webkit-gradient(linear, left top, right top, from(rgb(123, 46, 236)), color-stop(50%, rgb(9, 71, 121)), to(rgb(0, 212, 255)));
+  background: linear-gradient(to right, rgb(123, 46, 236) 0%, rgb(9, 71, 121) 50%, rgb(0, 212, 255) 100%);
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
+#mouse2 {
+  height: 200px;
+  width: 200px;
+  background: -webkit-gradient(linear, left top, right top, from(rgb(123, 46, 236)), color-stop(50%, rgb(9, 71, 121)), to(rgb(0, 212, 255)));
+  background: linear-gradient(to right, rgb(123, 46, 236) 0%, rgb(9, 71, 121) 50%, rgb(0, 212, 255) 100%);
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+header {
+  padding: 0 50px;
+}
+header #side-bar {
+  position: fixed;
+  width: 230px;
+  height: 230px;
+  background: transparent;
+  top: 0;
+  right: -230px;
+  -webkit-transition: 0.5s ease-out;
+  transition: 0.5s ease-out;
+  z-index: 4;
+}
+header .toggle-btn {
+  position: absolute;
+  top: 30px;
+  right: 300px;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+}
+header .toggle-btn span {
+  width: 60px;
+  height: 10px;
+  border-radius: 5px;
+  background: -webkit-gradient(linear, left top, right top, from(rgb(123, 46, 236)), color-stop(50%, rgb(9, 71, 121)), to(rgb(0, 212, 255)));
+  background: linear-gradient(to right, rgb(123, 46, 236) 0%, rgb(9, 71, 121) 50%, rgb(0, 212, 255) 100%);
+  display: block;
+  margin-top: 4px;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+header li {
+  color: white;
+  list-style: none;
+  font-size: 2.5rem;
+  cursor: pointer;
+  padding-left: 5px;
+}
+header li:hover {
+  background: rgb(0, 110, 255);
+  color: white;
+}
+header a {
+  text-decoration: none;
+  color: white;
+}
+header #side-bar.active {
+  right: 0;
+}
+header .active span {
+  position: absolute;
+}
+header .active span:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+header .active span:nth-child(2) {
+  opacity: 0;
+}
+header .active span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+header .active ~ .header-text {
+  opacity: 0.3;
+}
+header .header-text {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+@media screen and (max-width: 700px) {
+  header .header-text {
+    display: block;
+  }
+}
+header .header-text .left-part {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+header .header-text .left-part h2 {
+  font-family: Allura, sans-serif;
+  font-size: 3rem;
+  font-weight: 100;
+  background: -webkit-gradient(linear, left top, right top, from(rgb(123, 46, 236)), color-stop(50%, rgb(9, 71, 121)), to(rgb(0, 212, 255)));
+  background: linear-gradient(to right, rgb(123, 46, 236) 0%, rgb(9, 71, 121) 50%, rgb(0, 212, 255) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 10px;
+}
+header .header-text .left-part h1 {
+  background: -webkit-gradient(linear, left top, right top, from(rgb(123, 46, 236)), color-stop(50%, rgb(9, 71, 121)), to(rgb(0, 212, 255)));
+  background: linear-gradient(to right, rgb(123, 46, 236) 0%, rgb(9, 71, 121) 50%, rgb(0, 212, 255) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-family: ProtestRevolution, sans-serif;
+  font-size: 3.2rem;
+  letter-spacing: 10px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+header .header-text .left-part p {
+  font-family: Allura, sans-serif;
+  color: white;
+  font-size: 1.5rem;
+  letter-spacing: 3px;
+  font-weight: 100;
+  margin-bottom: 170px;
+}
+header .header-text .right-part {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+header .header-text .right-part img {
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 60vh;
+  width: 60vh;
+  position: absolute;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+header .header-reseaux-sociaux {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+@media screen and (max-width: 700px) {
+  header .header-reseaux-sociaux {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: 20px;
+    padding-top: 250px;
+  }
+}
+header .header-reseaux-sociaux a {
+  font-size: 1.2rem;
+  margin-left: 50px;
+  padding: 0 30px;
+  border-radius: 50px;
+  background: rgb(0, 110, 255);
+  color: white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 20px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  cursor: pointer;
+}
+header .header-reseaux-sociaux a:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+main {
+  margin-top: 40px;
+}
+main #section1 {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+main #section1 h2 {
+  color: white;
+  font-family: ProtestRevolution, sans-serif;
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 40px;
+}
+main #section1 .skills-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+main #section1 h3 {
+  color: white;
+  font-family: ProtestRevolution, sans-serif;
+  font-size: 2rem;
+  font-weight: 500;
+}
+main #section1 li {
+  text-align: center;
+  color: white;
+  font-size: 1.5rem;
+  border-right: 1px solid rgb(0, 110, 255);
+}
+main #section2 {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+main #section2 h2 {
+  color: white;
+  font-family: ProtestRevolution, sans-serif;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+main #section2 h3 {
+  color: white;
+  font-family: ProtestRevolution, sans-serif;
+  font-size: 2rem;
+  margin-bottom: 40px;
+}
+main #section2 .Projects-HTML-CSS-SASS {
+  color: white;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 40%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+}
+@media screen and (max-width: 700px) {
+  main #section2 .Projects-HTML-CSS-SASS {
+    grid-template-columns: 1fr;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: auto;
+        -ms-flex-pack: auto;
+            justify-content: auto;
+  }
+}
+main #section2 .Projects-HTML-CSS-SASS .Project1,
+main #section2 .Projects-HTML-CSS-SASS .Project2,
+main #section2 .Projects-HTML-CSS-SASS .Project3,
+main #section2 .Projects-HTML-CSS-SASS .Project4,
+main #section2 .Projects-HTML-CSS-SASS .Project-Pepidev {
+  border: 2px dashed rgb(0, 110, 255);
+}
+main #section2 .Projects-HTML-CSS-SASS .Project1 img,
+main #section2 .Projects-HTML-CSS-SASS .Project2 img,
+main #section2 .Projects-HTML-CSS-SASS .Project3 img,
+main #section2 .Projects-HTML-CSS-SASS .Project4 img,
+main #section2 .Projects-HTML-CSS-SASS .Project-Pepidev img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 200px;
+  height: 200px;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+main #section2 .Projects-HTML-CSS-SASS .Project1 i,
+main #section2 .Projects-HTML-CSS-SASS .Project2 i,
+main #section2 .Projects-HTML-CSS-SASS .Project3 i,
+main #section2 .Projects-HTML-CSS-SASS .Project4 i,
+main #section2 .Projects-HTML-CSS-SASS .Project-Pepidev i {
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+main #section2 .Projects-HTML-CSS-SASS .Project1 a,
+main #section2 .Projects-HTML-CSS-SASS .Project2 a,
+main #section2 .Projects-HTML-CSS-SASS .Project3 a,
+main #section2 .Projects-HTML-CSS-SASS .Project4 a,
+main #section2 .Projects-HTML-CSS-SASS .Project-Pepidev a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  cursor: pointer;
+}
+main #section2 .Projects-HTML-CSS-SASS .Project1 a:hover,
+main #section2 .Projects-HTML-CSS-SASS .Project2 a:hover,
+main #section2 .Projects-HTML-CSS-SASS .Project3 a:hover,
+main #section2 .Projects-HTML-CSS-SASS .Project4 a:hover,
+main #section2 .Projects-HTML-CSS-SASS .Project-Pepidev a:hover {
+  background: -webkit-gradient(linear, left top, right top, from(rgb(123, 46, 236)), color-stop(50%, rgb(9, 71, 121)), to(rgb(0, 212, 255)));
+  background: linear-gradient(to right, rgb(123, 46, 236) 0%, rgb(9, 71, 121) 50%, rgb(0, 212, 255) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+main #section2 .Projects-HTML-CSS-SASS .Project1 a:visited,
+main #section2 .Projects-HTML-CSS-SASS .Project2 a:visited,
+main #section2 .Projects-HTML-CSS-SASS .Project3 a:visited,
+main #section2 .Projects-HTML-CSS-SASS .Project4 a:visited,
+main #section2 .Projects-HTML-CSS-SASS .Project-Pepidev a:visited {
+  color: white;
+}
+main #section2 .Projects-HTML-CSS-SASS .Project1 p,
+main #section2 .Projects-HTML-CSS-SASS .Project2 p,
+main #section2 .Projects-HTML-CSS-SASS .Project3 p,
+main #section2 .Projects-HTML-CSS-SASS .Project4 p,
+main #section2 .Projects-HTML-CSS-SASS .Project-Pepidev p {
+  font-size: 1rem;
+  border-radius: 50px;
+  background: -webkit-gradient(linear, left top, right top, from(rgb(123, 46, 236)), color-stop(50%, rgb(9, 71, 121)), to(rgb(0, 212, 255)));
+  background: linear-gradient(to right, rgb(123, 46, 236) 0%, rgb(9, 71, 121) 50%, rgb(0, 212, 255) 100%);
+  margin-bottom: 20px;
+  width: 30%;
+  text-align: center;
+  margin-left: 20px;
+}
+main #section3 h2 {
+  color: white;
+  font-family: ProtestRevolution, sans-serif;
+  font-size: 2rem;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+main #section3 .Projects-JavaScript {
+  color: white;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 40%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+}
+@media screen and (max-width: 700px) {
+  main #section3 .Projects-JavaScript {
+    grid-template-columns: 1fr;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: auto;
+        -ms-flex-pack: auto;
+            justify-content: auto;
+  }
+}
+main #section3 .Projects-JavaScript .Project5,
+main #section3 .Projects-JavaScript .Project6,
+main #section3 .Projects-JavaScript .Project7,
+main #section3 .Projects-JavaScript .Project8,
+main #section3 .Projects-JavaScript .Project9,
+main #section3 .Projects-JavaScript .Project10,
+main #section3 .Projects-JavaScript .Project11 {
+  border: 2px dashed rgb(0, 110, 255);
+}
+main #section3 .Projects-JavaScript .Project5 img,
+main #section3 .Projects-JavaScript .Project6 img,
+main #section3 .Projects-JavaScript .Project7 img,
+main #section3 .Projects-JavaScript .Project8 img,
+main #section3 .Projects-JavaScript .Project9 img,
+main #section3 .Projects-JavaScript .Project10 img,
+main #section3 .Projects-JavaScript .Project11 img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 200px;
+  height: 200px;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+main #section3 .Projects-JavaScript .Project5 i,
+main #section3 .Projects-JavaScript .Project6 i,
+main #section3 .Projects-JavaScript .Project7 i,
+main #section3 .Projects-JavaScript .Project8 i,
+main #section3 .Projects-JavaScript .Project9 i,
+main #section3 .Projects-JavaScript .Project10 i,
+main #section3 .Projects-JavaScript .Project11 i {
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+main #section3 .Projects-JavaScript .Project5 a,
+main #section3 .Projects-JavaScript .Project6 a,
+main #section3 .Projects-JavaScript .Project7 a,
+main #section3 .Projects-JavaScript .Project8 a,
+main #section3 .Projects-JavaScript .Project9 a,
+main #section3 .Projects-JavaScript .Project10 a,
+main #section3 .Projects-JavaScript .Project11 a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  cursor: pointer;
+}
+main #section3 .Projects-JavaScript .Project5 a:hover,
+main #section3 .Projects-JavaScript .Project6 a:hover,
+main #section3 .Projects-JavaScript .Project7 a:hover,
+main #section3 .Projects-JavaScript .Project8 a:hover,
+main #section3 .Projects-JavaScript .Project9 a:hover,
+main #section3 .Projects-JavaScript .Project10 a:hover,
+main #section3 .Projects-JavaScript .Project11 a:hover {
+  background: -webkit-gradient(linear, left top, right top, from(rgb(123, 46, 236)), color-stop(50%, rgb(9, 71, 121)), to(rgb(0, 212, 255)));
+  background: linear-gradient(to right, rgb(123, 46, 236) 0%, rgb(9, 71, 121) 50%, rgb(0, 212, 255) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+main #section3 .Projects-JavaScript .Project5 a:visited,
+main #section3 .Projects-JavaScript .Project6 a:visited,
+main #section3 .Projects-JavaScript .Project7 a:visited,
+main #section3 .Projects-JavaScript .Project8 a:visited,
+main #section3 .Projects-JavaScript .Project9 a:visited,
+main #section3 .Projects-JavaScript .Project10 a:visited,
+main #section3 .Projects-JavaScript .Project11 a:visited {
+  color: white;
+}
+main #section3 .Projects-JavaScript .Project5 p,
+main #section3 .Projects-JavaScript .Project6 p,
+main #section3 .Projects-JavaScript .Project7 p,
+main #section3 .Projects-JavaScript .Project8 p,
+main #section3 .Projects-JavaScript .Project9 p,
+main #section3 .Projects-JavaScript .Project10 p,
+main #section3 .Projects-JavaScript .Project11 p {
+  font-size: 1rem;
+  border-radius: 50px;
+  background: -webkit-gradient(linear, left top, right top, from(rgb(123, 46, 236)), color-stop(50%, rgb(9, 71, 121)), to(rgb(0, 212, 255)));
+  background: linear-gradient(to right, rgb(123, 46, 236) 0%, rgb(9, 71, 121) 50%, rgb(0, 212, 255) 100%);
+  margin-bottom: 20px;
+  width: 30%;
+  text-align: center;
+  margin-left: 20px;
+}
+main #section5 {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+main #section5 h2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  color: white;
+  font-family: ProtestRevolution, sans-serif;
+  font-size: 2rem;
+  margin: 40px 0px;
+}
+main #section5 .reseaux-et-mail {
+  display: grid;
+  grid-template-columns: repeat(3, 33.33%);
+}
+@media screen and (max-width: 700px) {
+  main #section5 .reseaux-et-mail {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-left: 70px;
+  }
+}
+main #section5 .reseaux-et-mail a {
+  font-size: 1.2rem;
+  margin-left: 40px;
+  padding: 0 30px;
+  border-radius: 50px;
+  background: rgb(0, 110, 255);
+  color: white;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 70%;
+  height: 20px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  cursor: pointer;
+}
+main #section5 .reseaux-et-mail a:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+
+footer {
+  margin-top: 40px;
+  font-family: Allura, sans-serif;
+  font-size: 1.5rem;
+  color: white;
+}/*# sourceMappingURL=index.css.map */
